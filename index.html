@@ -9,6 +9,10 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
 
     <!-- daisy UI -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -22,7 +26,7 @@
           theme: {
             extend: {
                 fontFamily:{
-                    primaryfont:['"Outfit", sans-serif']
+                    primaryfont:["Roboto", sans-serif]
                 }
             }
           }
@@ -30,6 +34,60 @@
     </script>
 </head>
 <body>
-    <h1 class="text-center text-2xl">Emergency Hotline</h1>
+    
+    <!-- Header -->
+    <header class="bg-white shadow-[box-shadow: 0 1px 50px 0 rgba(181, 181, 181, 0.25)] px-14 py-6 ">
+        <div class="header_container flex justify-between">
+            <div class="logo flex gap-1">
+                <img class="max-w-12" src="/assets/logo.png" alt="">
+                <h1 class="font-[primaryfont] font-bold text-green-700 text-2xl leading-none">Emergency <br> Service</h1>
+            </div>
+            <div class="header_countpart flex gap-2">
+                <div class="flex px-6 py-3 bg-[#e2f8e4] rounded-[56px] items-center gap-1">
+                    <p>0</p>
+                    <img class="max-w-7" src="/assets/heart.png" alt="">
+                </div>
+                <div class="flex px-6 py-3 bg-[#e2f8e4] rounded-[56px] items-center gap-1">
+                    <p>100</p>
+                    <img class="max-w-6" src="/assets/coin.png" alt="">
+                </div>
+                <div class=" px-6 py-3 bg-[#e2f8e4] rounded-[56px] items-center">
+                    <p><span class="mr-1">2</span>Copy</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="bg-gradient-to-b from-emerald-900 to-emerald-950 text-white text-center py-8 px-4">
+        <div class="text-3xl mb-2">🆘</div>
+        <h1 class="text-2xl font-bold">Emergency Service Directory</h1>
+        <p class="text-emerald-200 text-xs mt-1">Government Emergency Services at Your Fingertip — A Project by Government of the People's Republic of Bangladesh</p>
+    </section>
+
+    <!-- Main content -->
+    <main class="max-w-6xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-4 gap-4 bg-[#f5fff6]">
+
+        <!-- Service grid -->
+        <div id="service-grid" class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+
+        <!-- Call history panel -->
+        <aside class="bg-white rounded-xl shadow-sm p-4 h-fit lg:sticky lg:top-4">
+            <div class="flex items-center justify-between mb-3">
+            <h2 class="font-semibold text-sm">Call History</h2>
+            <button id="clear-history" class="btn btn-xs btn-success text-white">Clear</button>
+            </div>
+            <ul id="call-history" class="space-y-2 text-xs max-h-96 overflow-y-auto"></ul>
+            <p id="history-empty" class="text-xs text-gray-400 text-center py-6">No activity yet</p>
+        </aside>
+
+    </main>
+
+    <div id="toast-container" class="toast toast-bottom toast-center"></div>
+
+
+
+    <script src="/js/script.js"></script>
+
 </body>
 </html>
