@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergency-Hotline</title>
 
-    <!-- outfit and sans font -->
+    <!-- google fonts -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -13,12 +13,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
+    <!-- Font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
     <!-- daisy UI -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 
     <!-- tailwind added -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- tailwind config or customization css -->
     <script>
@@ -26,7 +29,7 @@
           theme: {
             extend: {
                 fontFamily:{
-                    primaryfont:["Hind", sans-serif]
+                    primaryfont:["Hind", "sans-serif"]
                 }
             }
           }
@@ -66,16 +69,16 @@
     </section>
 
     <!-- Main content -->
-    <main class="max-w-6xl mx-auto pt-12 pb-16 px-14 grid grid-cols-1 lg:grid-cols-4 gap-4 bg-[#f5fff6]">
+    <main class=" mx-auto pt-12 pb-16 px-14 grid grid-cols-1 lg:grid-cols-4 gap-7 bg-[#f5fff6]">
 
         <!-- Service grid -->
-        <div id="service-grid" class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+        <div id="service-grid" class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7"></div>
 
         <!-- Call history panel -->
-        <aside class="bg-white rounded-xl shadow-sm p-4 h-fit lg:sticky lg:top-4">
+        <aside class="bg-white rounded-xl shadow-sm p-4 lg:sticky lg:top-4">
             <div class="flex items-center justify-between mb-3">
-            <h2 class="font-semibold text-sm">Call History</h2>
-            <button id="clear-history" class="btn btn-xs btn-success text-white">Clear</button>
+                <h2 class="font-semibold text-sm">Call History</h2>
+                <button id="clear-history" class="btn btn-xs btn-success    text-white">Clear</button>
             </div>
             <ul id="call-history" class="space-y-2 text-xs max-h-96 overflow-y-auto"></ul>
             <p id="history-empty" class="text-xs text-gray-400 text-center py-6">No activity yet</p>

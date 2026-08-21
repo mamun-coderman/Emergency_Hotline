@@ -2,15 +2,15 @@
    1. DATA — single source of truth for every card
 --------------------------------------------------- */
 const services = [
-  { id: 1, icon: "🚑", name: "National Emergency Number", tag: "All",           number: "999" },
-  { id: 2, icon: "👮", name: "Police Helpline Number",      tag: "Police",        number: "999" },
-  { id: 3, icon: "🚒", name: "Fire Service Number",         tag: "Fire",          number: "999" },
-  { id: 4, icon: "🚑", name: "Ambulance Service",           tag: "Health",        number: "1994-999999" },
-  { id: 5, icon: "🧒", name: "Women & Child Helpline",      tag: "Help",          number: "109" },
-  { id: 6, icon: "🚫", name: "Anti-Corruption Helpline",    tag: "Govt",          number: "106" },
-  { id: 7, icon: "⚡", name: "Electricity Helpline",        tag: "Electricity",   number: "16216" },
-  { id: 8, icon: "📞", name: "Brac Helpline",               tag: "NGO",           number: "16445" },
-  { id: 9, icon: "🚆", name: "Bangladesh Railway Helpline", tag: "Travel",        number: "163" },
+  { id: 1, icon: "./assets/emergency.png", name: "National Emergency Number", tag: "All",   number: "999" },
+  { id: 2, icon: "./assets/police.png", name: "Police Helpline Number",      tag: "Police",        number: "999" },
+  { id: 3, icon: "./assets/fire-service.png", name: "Fire Service Number",         tag: "Fire",          number: "999" },
+  { id: 4, icon: "./assets/ambulance.png", name: "Ambulance Service",           tag: "Health",        number: "1994-999999" },
+  { id: 5, icon: "./assets/emergency.png", name: "Women & Child Helpline",      tag: "Help",          number: "109" },
+  { id: 6, icon: "./assets/emergency.png", name: "Anti-Corruption Helpline",    tag: "Govt",          number: "106" },
+  { id: 7, icon: "./assets/emergency.png", name: "Electricity Helpline",        tag: "Electricity",   number: "16216" },
+  { id: 8, icon: "./assets/brac.png", name: "Brac Helpline",               tag: "NGO",           number: "16445" },
+  { id: 9, icon: "./assets/Bangladesh-Railway.png", name: "Bangladesh Railway Helpline", tag: "Travel",        number: "163" },
 ];
 
 /* ---------------------------------------------------
@@ -27,8 +27,8 @@ function renderCards() {
   grid.innerHTML = services.map(s => `
     <div class="service-card bg-white rounded-xl shadow-sm p-4 flex flex-col gap-2" data-id="${s.id}">
       <div class="flex items-start justify-between">
-        <span class="text-xl">${s.icon}</span>
-        <button class="favorite-btn text-gray-300 hover:text-red-400 text-sm" data-id="${s.id}">♡</button>
+        <span class="h-14 w-14 p-4 bg-[#ffe3e2] rounded-2xl"><img src="${s.icon}" alt="${s.name}"></span>
+        <button class="favorite-btn text-gray-300 hover:text-red-400 text-sm" data-id="${s.id}"><i class="fa-regular fa-heart"></i></button>
       </div>
       <div>
         <p class="font-semibold text-sm leading-tight">${s.name}</p>
@@ -36,8 +36,8 @@ function renderCards() {
       </div>
       <p class="text-xl font-bold text-gray-800">${s.number}</p>
       <div class="flex gap-2 mt-1">
-        <button class="copy-btn btn btn-xs btn-outline flex-1" data-id="${s.id}">Copy</button>
-        <button class="call-btn btn btn-xs btn-success text-white flex-1" data-id="${s.id}">📞 Call</button>
+        <button class="copy-btn btn btn-outline flex-1" data-id="${s.id}">Copy</button>
+        <button class="call-btn  btn btn-success bg-[#00a63e] text-white flex-1" data-id="${s.id}">Call</button>
       </div>
     </div>
   `).join("");
@@ -125,3 +125,4 @@ document.getElementById("clear-history").addEventListener("click", () => {
 --------------------------------------------------- */
 renderCards();
 renderHistory();
+
