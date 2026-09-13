@@ -18,6 +18,8 @@ const services = [
 --------------------------------------------------- */
 let history = JSON.parse(localStorage.getItem("callHistory") || "[]");
 
+let heartCount = 0;
+
 /* ---------------------------------------------------
    3. RENDER — build cards from data (no hardcoded HTML)
 --------------------------------------------------- */
@@ -42,6 +44,8 @@ function renderCards() {
     </div>
   `).join("");
 }
+
+
 
 function renderHistory() {
   const list = document.getElementById("call-history");
@@ -94,6 +98,7 @@ grid.addEventListener("click", (e) => {
   const copyBtn = e.target.closest(".copy-btn");
   const callBtn = e.target.closest(".call-btn");
   const favBtn  = e.target.closest(".favorite-btn");
+  
 
   if (copyBtn) {
     const service = services.find(s => s.id == copyBtn.dataset.id);
@@ -110,7 +115,16 @@ grid.addEventListener("click", (e) => {
   }
 
   if (favBtn) {
-    favBtn.textContent = favBtn.textContent === "♡" ? "❤️" : "♡";
+    
+    if (favBtn.innerHTML.includes("fa-regular")) {
+      favBtn.innerHTML = `<i class="fa-solid fa-heart text-red-500"></i>`
+      heartCount += 1;
+    }
+    else {
+      favBtn.innerHTML = `<i class="fa-regular fa-heart"></i>`;
+      heartCount -= 1;
+    }
+    document.getElementById("heart_counter").textContent = heartCount ;
   }
 });
 
@@ -125,4 +139,6 @@ document.getElementById("clear-history").addEventListener("click", () => {
 --------------------------------------------------- */
 renderCards();
 renderHistory();
+
+
 
